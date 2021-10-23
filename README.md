@@ -14,3 +14,5 @@ Currently only `@name` and `@group` are supported by the scripter.
 /// @author Author name
 /// @version 1.0.0-beta
 ```
+
+If your script requires additional files, place the script in its own folder along with the additional files in its own `io` folder.
