@@ -5,7 +5,7 @@
 ///   The trade window won't be shown in-client,
 ///   and your inventory won't refresh until the script is canceled.
 /// @author b7
-/// @version 1.0.0-beta
+/// @scripter 1.0.0-beta
 
 OnIntercept((
   In.TradeOpen, In.TradeCompleted,
