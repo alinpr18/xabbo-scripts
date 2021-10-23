@@ -1,10 +1,11 @@
 /// @name Auto accept trades
+/// @group Trading
 /// @desc 
 ///   Automatically accepts trades.
 ///   The trade window won't be shown in-client,
 ///   and your inventory won't refresh until the script is canceled.
 /// @author b7
-/// @group Trading
+/// @version 1.0.0-beta
 
 OnIntercept((
   In.TradeOpen, In.TradeCompleted,
