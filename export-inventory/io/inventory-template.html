@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <title>Inventory</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+      body, html {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #app {
+        padding: 4px;
+      }
+
+      .search { padding: 4px; }
+
+      .item-container {
+        margin: 4px;
+        display: flex;
+        flex: 1 1 0px;
+        flex-wrap: wrap;
+        gap: 4px;
+        align-content: center;
+      }
+
+      .item {
+        width: 50px;
+        height: 50px;
+        border: 1px solid gray;
+        border-radius: 4px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        user-select: none;
+      }
+
+      .item:hover {
+        background-color: #ddd;
+      }
+
+      .item > * { grid-column: 1; grid-row: 1; }
+
+      .item-image {
+        align-self: center;
+        justify-self: center;
+      }
+
+      .item-count {
+        margin: 2px;
+        padding: 0px 2px;
+        align-self: end;
+        justify-self: end;
+        font-size: 11px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="search">
+        Search
+        <input type="text" v-model="searchText">
+      </div>
+      <div class="item-container">
+        <div v-for="item in filteredItems" class="item" v-bind:title="item.name">
+          <div class="item-image">
+            <img v-bind:src="getImageUrl(item)">
+          </div>
+          <div class="item-count">
+            {{ item.count }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          searchText: '',
+          items: $jsonInventory
+        },
+        methods: {
+          getImageUrl(item) {
+            return `https://images.habbo.com/dcr/hof_furni/${item.revision}/${item.identifier}_icon.png`;
+          }
+        },
+        computed: {
+          filteredItems() {
+            return this.items.filter(item => {
+              return item.name.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
