@@ -5,7 +5,7 @@ A collection of scripts for use with the [xabbo scripter](https://github.com/b7c
 # contributing
 
 You may use the following metadata at the top of your scripts.\
-Please include the version of the scripter it was written for.\
+Please include the version of the scripter it was written for with the `@scripter` property.\
 Currently only `@name` and `@group` are supported by the scripter.
 
 ```cs
