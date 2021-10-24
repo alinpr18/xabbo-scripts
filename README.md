@@ -10,6 +10,7 @@ Currently only `@name` and `@group` are supported by the scripter.
 
 ```cs
 /// @name Script name
+/// @group Group name
 /// @desc Description here.
 /// @author Author name
 /// @scripter 1.0.0-beta
