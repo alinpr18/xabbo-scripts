@@ -27,7 +27,7 @@ ShowBubble($"{EnsureInventory().Count()} items in inventory");
 try {
   while (Run) {
     Status("Waiting for trade...");
-    Receive(In.TradeAccept);
+    Receive(In.TradeOpen);
     while (Run) {
       Status("Waiting for partner to accept trade...");
       var packet = Receive((In.TradeAccept, In.TradeClose));
