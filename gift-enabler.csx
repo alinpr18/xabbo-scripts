@@ -9,7 +9,7 @@ OnIntercept(In.CatalogPage, e => {
   var page = CatalogPage.Parse(e.Packet);
   foreach (var offer in page.Offers)
     offer.CanPurchaseAsGift = true;
-  e.Packet = Packet.Compose(CurrentClient, e.Packet.Header, page);
+  e.Packet = new Packet(e.Packet.Header, Client).Write(page);
 });
 
 Wait();
